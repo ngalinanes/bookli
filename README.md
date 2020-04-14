@@ -18,3 +18,6 @@ Aplicación utilizada en la cursada 2020 de Ingenieria de Software. UTN-FRLP
 ## Iniciar la app en modo producción
 
 `npm start`
+
+## Grupo 11
+_Nicolas Galiñanes_
