@@ -20,5 +20,5 @@ Aplicación utilizada en la cursada 2020 de Ingenieria de Software. UTN-FRLP
 `npm start`
 
 ## Grupo 11
-*_Nicolas Galiñanes_
-*_Santiago Esmoris_
+*_Nicolas Galiñanes_*
+*_Santiago Esmoris_*
