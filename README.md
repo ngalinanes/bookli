@@ -28,3 +28,4 @@ Aplicación utilizada en la cursada 2020 de Ingenieria de Software. UTN-FRLP
 
 *_Fernando Savoy_*
 
+*_Ivan Ignacio Machahado Taier_*
