@@ -35,6 +35,9 @@
         <button class="btn btn-primary" data-ref="addToList">
             Empezar a leer
         </button>
+        <a href="http://localhost:3000/" class="btn btn-secondary">
+            Volver
+        </a>
         {% endif %} {% if book.status == 'READING' %}
         <button class="btn btn-warning" data-ref="removeFromList">
             Dejar de leer
@@ -42,10 +45,16 @@
         <button class="btn btn-success" data-ref="addToFinish">
             Lo termine!
         </button>
+        <a href="http://localhost:3000/" class="btn btn-secondary">
+            Volver
+        </a>
         {% endif %} {% if book.status == 'FINISHED' %}
         <button class="btn btn-danger" data-ref="removeFromFinish">
             Volver a leer
         </button>
+        <a href="http://localhost:3000/" class="btn btn-secondary">
+            Volver
+        </a>
         {% endif %}
     </div>
     {% endif %}
