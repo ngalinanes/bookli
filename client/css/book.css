@@ -16,6 +16,7 @@
 }
 
 .book.book--full {
+	opacity: 1 !important;	
     cursor: auto;
     height: auto;
 }
@@ -96,3 +97,10 @@
     display: inline-block;
     border-bottom: 2px dotted var(--primary);
 }
+
+.book:hover {
+	opacity: 0.5;	
+}
+
+
+	
