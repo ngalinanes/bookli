@@ -12,6 +12,7 @@ const initBooks = () => {
                 isbn: '9788499089515',
                 genres: ['Cuentos', 'Fantástico'],
                 authors: ['Jorge Luis Borges'],
+                country: 'algunPais',
                 cover: '/assets/covers/el-aleph.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -26,6 +27,7 @@ const initBooks = () => {
                 isbn: '9789505153527',
                 genres: ['No ficción'],
                 authors: ['Rodolfo Walsh'],
+                country: 'algunPais',
                 cover: '/assets/covers/operacion-masacre.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -40,6 +42,7 @@ const initBooks = () => {
                 isbn: '9780201616224',
                 genres: ['Educación', 'Tecnología', 'Programación'],
                 authors: ['David Thomas', 'Andrew Hunt'],
+                country: 'algunPais',
                 cover: '/assets/covers/pragmatic-programmer.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -55,6 +58,7 @@ const initBooks = () => {
                 isbn: '9780735619678',
                 genres: ['Educación', 'Tecnología', 'Programación'],
                 authors: ['Steve McConnell'],
+                country: 'algunPais',
                 cover: '/assets/covers/code-complete.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -69,6 +73,7 @@ const initBooks = () => {
                 isbn: '9780486474915',
                 genres: ['Policial', 'Cuentos'],
                 authors: ['Sir Arthur Conan Doyle'],
+                country: 'algunPais',
                 cover: '/assets/covers/sherlock.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -83,6 +88,7 @@ const initBooks = () => {
                 isbn: '9781328869333',
                 genres: ['Ciencia ficción', 'Novela'],
                 authors: ['George Orwell'],
+                country: 'algunPais',
                 cover: '/assets/covers/1984.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -97,6 +103,7 @@ const initBooks = () => {
                 isbn: '9781541276727',
                 genres: ['Ficción distópica', 'Novela'],
                 authors: ['Franz Kafka'],
+                country: 'algunPais',
                 cover: '/assets/covers/trial.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -111,6 +118,7 @@ const initBooks = () => {
                 isbn: '9781451673319',
                 genres: ['Ciencia ficción', 'Novela'],
                 authors: ['Ray Bradbury'],
+                country: 'algunPais',
                 cover: '/assets/covers/fahrenheit.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -125,6 +133,7 @@ const initBooks = () => {
                 isbn: '9780486264783',
                 genres: ['Comedia', 'Teatro'],
                 authors: ['Oscar Wilde'],
+                country: 'algunPais',
                 cover: '/assets/covers/earnest.jpg',
                 status: BookModel.status.AVAILABLE,
             })
@@ -139,6 +148,7 @@ const initBooks = () => {
                 isbn: '9780451526342',
                 genres: ['Sátira', 'Novela'],
                 authors: ['George Orwell'],
+                country: 'algunPais',
                 cover: '/assets/covers/animal-farm.jpg',
                 status: BookModel.status.AVAILABLE,
             })
