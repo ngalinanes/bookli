@@ -92,7 +92,8 @@ p {
 }
 
 .btn.btn-primary:focus,
-.btn.btn-primary:hover {
+.btn.btn-primary:hover,
+.btn.btn-secondary:hover {
     background-color: var(--primary-dark);
 }
 
