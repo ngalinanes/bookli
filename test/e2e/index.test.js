@@ -105,6 +105,20 @@ describe('Detail view', () => {
             .text.to.equal('Empezar a leer');
     });
 
+    test('Chequear que el boton Volver redirija al home', browser => {
+        //Chequeo que el elemento "a" tenga el atributo href con la url del home, ya que los demas botones dentro de .book__actions son "button" y el unico "a" es Volver
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.book__actions')
+        .waitForElementVisible('a')
+        .assert.attributeEquals(
+            'a',
+            'href',
+            'http://localhost:3000/'
+        );
+    });
+
     test('Deberia mostrar boton para remover libro de la lista de lectura si el libro es parte de la lista de lectura', browser => {
         browser
             .url(BASE_URL + '/detail/1')
