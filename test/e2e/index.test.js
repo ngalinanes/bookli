@@ -78,6 +78,23 @@ describe('Home Test', () => {
                 'Hmmm... Parece que no tenemos el libro que buscas.\nProba con otra busqueda.'
             );
     });
+	
+	test('Test Opacidad libro al hacer Hover', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist')
+            .moveToElement(
+                'body > main > div > div.books-container > div > a:nth-child(1) > div',
+                10,
+                10,
+            )
+            .assert.cssProperty(
+                'body > main > div > div.books-container > div > a:nth-child(1) > div',
+                'opacity',
+                '0.5'
+            )
+	});
 });
 
 describe('Detail view', () => {
@@ -159,4 +176,6 @@ describe('Detail view', () => {
             .element('.book__actions [data-ref=removeFromFinish]')
             .text.to.equal('Volver a leer');
     });
+	
+	
 });
