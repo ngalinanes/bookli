@@ -43,7 +43,7 @@ describe('Home Test', () => {
     });
 
     test('Click en el logo debe redirigir al home', browser => {
-        global.window = { location: { pathname: null } };
+        
         browser
         .url(BASE_URL)
         .waitForElementVisible('body')
