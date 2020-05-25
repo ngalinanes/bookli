@@ -42,6 +42,19 @@ describe('Home Test', () => {
             );
     });
 
+    test('Click en el logo debe redirigir al home', browser => {
+        
+        browser
+        .url(BASE_URL)
+        .waitForElementVisible('body')
+        .waitForElementVisible('.brand')
+        .assert.attributeEquals(
+            '.brand',
+            'href',
+            'http://localhost:3000/'
+        );
+    });
+
     test('Deberia mostrar la lista de libros', browser => {
         browser
             .url(BASE_URL)
@@ -109,6 +122,20 @@ describe('Detail view', () => {
             .text.to.equal('Empezar a leer');
     });
 
+    test('Chequear que el boton Volver redirija al home', browser => {
+        //Chequeo que el elemento "a" tenga el atributo href con la url del home, ya que los demas botones dentro de .book__actions son "button" y el unico "a" es Volver
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.book__actions')
+        .waitForElementVisible('a')
+        .assert.attributeEquals(
+            'a',
+            'href',
+            'http://localhost:3000/'
+        );
+    });
+
     test('Deberia mostrar boton para remover libro de la lista de lectura si el libro es parte de la lista de lectura', browser => {
         browser
             .url(BASE_URL + '/detail/1')
@@ -123,6 +150,17 @@ describe('Detail view', () => {
         browser.expect
             .element('.book__actions [data-ref=removeFromList]')
             .text.to.equal('Dejar de leer');
+    });
+
+    test('Deberia poder verse el pais de un libro en el detalle', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body');
+    
+        browser.expect
+            .element('body > main > div > div.book__body > div > p:nth-child(2) > span')
+            .text.to.equal('algunPais');
     });
 
     test('Deberia poder remover libro de la lista de lectura', browser => {
