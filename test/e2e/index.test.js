@@ -42,6 +42,19 @@ describe('Home Test', () => {
             );
     });
 
+    test('Click en el logo debe redirigir al home', browser => {
+        global.window = { location: { pathname: null } };
+        browser
+        .url(BASE_URL)
+        .waitForElementVisible('body')
+        .waitForElementVisible('.brand')
+        .assert.attributeEquals(
+            '.brand',
+            'href',
+            'http://localhost:3000/'
+        );
+    });
+
     test('Deberia mostrar la lista de libros', browser => {
         browser
             .url(BASE_URL)
