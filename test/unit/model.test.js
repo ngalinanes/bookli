@@ -373,8 +373,10 @@ test('Obtener un libro con array generos no vacio', async () => {
     // Obtenemos el libro
     const receivedBook = await BookModels.get(1);
 
-    expect(book.genres).not.toBeNull();
-    expect.arrayContaining(book.genres);
+    expect(book.genres).not.toEqual([]);
+
+    //expect(book.genres).not.toBeNull();
+    //expect.arrayContaining(book.genres);
 });
 
 test('Poner disponible un libro nuevamente', async () => {
