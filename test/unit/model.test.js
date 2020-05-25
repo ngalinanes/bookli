@@ -353,6 +353,30 @@ test('Obtener lista de lectura vacía', async () => {
     expect(filterBook.length).toBe(0);
 });
 
+test('Obtener un libro con array generos no vacio', async () => {
+    const bookData = {
+        title: 'The Pragmatic Programmer',
+        synopsis:
+            'Straight from the programming trenches, The Pragmatic Programmer cuts through the increasing specialization and technicalities of modern software development to examine the core process--taking a requirement and producing working, maintainable code that delights its users. It covers topics ranging from personal responsibility and career development to architectural techniques for keeping your code flexible and easy to adapt and reuse.',
+        year: 1999,
+        publisher: 'Addison-Wesley Professional',
+        isbn: '9780201616224',
+        genres: ['Educación', 'Tecnología', 'Programación'],
+        authors: ['David Thomas', 'Andrew Hunt'],
+        country: 'AlgunPais',
+        cover: '/assets/pragmatic-programmer.jpg',
+    };
+
+    // Creamos el libro
+    const book = await BookModels.create(bookData);
+
+    // Obtenemos el libro
+    const receivedBook = await BookModels.get(1);
+
+    expect(book.genres).not.toBeNull();
+    expect.arrayContaining(book.genres);
+});
+
 test('Poner disponible un libro nuevamente', async () => {
     const bookData = {
         title: 'The Pragmatic Programmer',
