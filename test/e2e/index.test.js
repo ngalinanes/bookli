@@ -42,6 +42,19 @@ describe('Home Test', () => {
             );
     });
 
+    test('Click en el logo debe redirigir al home', browser => {
+        
+        browser
+        .url(BASE_URL)
+        .waitForElementVisible('body')
+        .waitForElementVisible('.brand')
+        .assert.attributeEquals(
+            '.brand',
+            'href',
+            'http://localhost:3000/'
+        );
+    });
+
     test('Deberia mostrar la lista de libros', browser => {
         browser
             .url(BASE_URL)
@@ -106,6 +119,17 @@ describe('Detail view', () => {
         browser.expect
             .element('.book__actions [data-ref=removeFromList]')
             .text.to.equal('Dejar de leer');
+    });
+
+    test('Deberia poder verse el pais de un libro en el detalle', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body');
+    
+        browser.expect
+            .element('body > main > div > div.book__body > div > p:nth-child(2) > span')
+            .text.to.equal('algunPais');
     });
 
     test('Deberia poder remover libro de la lista de lectura', browser => {

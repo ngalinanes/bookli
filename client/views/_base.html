@@ -16,14 +16,17 @@
     </head>
     <body class="app-layout">
         <header class="header">
-            <div class="brand">
-                <img
-                    class="brand__logo"
-                    src="/assets/logo.svg"
-                    alt="bookli logo"
-                />
+            <a href="http://localhost:3000/" class="brand">
+                <div class="brand">
+                    <img
+                        class="brand__logo"
+                        src="/assets/logo.svg"
+                        alt="bookli logo"
+                    />
+                </div>
                 <span class="brand__name">Bookli</span>
-            </div>
+            </a>
+                
 
             {% block search %} {% endblock %}
         </header>

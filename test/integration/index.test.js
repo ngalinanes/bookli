@@ -35,6 +35,7 @@ test('Obtener libros por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -58,6 +59,7 @@ test('Buscar libros por api con un resultado', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -70,6 +72,7 @@ test('Buscar libros por api con un resultado', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -95,6 +98,7 @@ test('Buscar libros por api sin ningún resultado', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -107,6 +111,7 @@ test('Buscar libros por api sin ningún resultado', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -131,6 +136,7 @@ test('Buscar libros por api con más de un resultado', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -143,6 +149,7 @@ test('Buscar libros por api con más de un resultado', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -175,6 +182,7 @@ test('Obtener un libro por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -198,6 +206,7 @@ test('Agregar un libro a la lista de lectura por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -233,6 +242,7 @@ test('Obtener libros de la lista de lectura por api', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
         status: BookModels.status.READING,
@@ -246,6 +256,7 @@ test('Obtener libros de la lista de lectura por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -274,6 +285,7 @@ test('Remover un libro de la lista de lectura por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
         status: BookModels.status.READING,
@@ -305,6 +317,7 @@ test('Remover un libro terminado de la lista de lectura por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
         status: BookModels.status.FINISHED,
@@ -333,6 +346,7 @@ test('Finalizar un libro por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
         status: BookModels.status.READING,
@@ -364,6 +378,7 @@ test('Finalizar un libro disponible por api', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
