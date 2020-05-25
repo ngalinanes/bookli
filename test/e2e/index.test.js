@@ -54,6 +54,17 @@ describe('Home Test', () => {
             'http://localhost:3000/'
         );
     });
+    test('Deberia mostrar el placeholder en el boton de busqueda', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('body > header > div.search > input')
+            .assert.attributeContains(
+                'body > header > div.search > input',
+                'placeholder',
+                'Buscar un libro'
+            );
+    });
 
     test('Deberia mostrar la lista de libros', browser => {
         browser
