@@ -145,6 +145,10 @@ describe('Detail view', () => {
             'href',
             'http://localhost:3000/'
         );
+
+        browser
+        .expect.element('body > main > div > div.book__actions > a')
+        .text.to.equal('Volver');
     });
 
     test('Deberia mostrar boton para remover libro de la lista de lectura si el libro es parte de la lista de lectura', browser => {
