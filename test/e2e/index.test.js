@@ -160,6 +160,16 @@ describe('Detail view', () => {
         browser
         .expect.element('body > main > div > div.book__actions > a')
         .text.to.equal('Volver');
+
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.book__actions')
+        .waitForElementVisible('a')
+        .click('a');
+
+        browser
+        .assert.urlEquals('http://localhost:3000/');
     });
 
     test('Deberia mostrar boton para remover libro de la lista de lectura si el libro es parte de la lista de lectura', browser => {
