@@ -53,7 +53,18 @@ describe('Home Test', () => {
             'href',
             'http://localhost:3000/'
         );
+
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.brand')
+        .click('.brand'
+        );
+
+        browser
+        .assert.urlEquals('http://localhost:3000/');
     });
+
     test('Deberia mostrar el placeholder en el boton de busqueda', browser => {
         browser
             .url(BASE_URL)
