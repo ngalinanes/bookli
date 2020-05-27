@@ -81,6 +81,39 @@ describe('Home Test', () => {
 });
 
 describe('Detail view', () => {
+
+	test('Deberia aparecer los botones Dejar de leer y Lo termine! al hacer click en Volver a leer de un libro terminado', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__actions [data-ref=addToList]');
+
+        browser
+            .click('.book__actions [data-ref=addToList]')
+            .pause(1000)
+            .waitForElementVisible('.book__actions [data-ref=removeFromList]')
+            .waitForElementVisible('.book__actions [data-ref=addToFinish]')
+            .click('.book__actions [data-ref=addToFinish]')
+            .pause(1000)
+            .click('.book__actions [data-ref=removeFromFinish]')
+            .pause(1000)
+            .waitForElementVisible('.book__actions [data-ref=removeFromList]')
+            .waitForElementVisible('.book__actions [data-ref=addToFinish]');
+
+        browser.expect
+            .element('.book__actions [data-ref=removeFromList]')
+            .text.to.equal('Dejar de leer');
+
+        browser.expect
+            .element('.book__actions [data-ref=addToFinish]')
+            .text.to.equal('Lo termine!');
+            
+    });
+
+
+
+
+
     test('Deberia mostrar boton para agregar a lista de lectura', browser => {
         browser
             .url(BASE_URL + '/detail/1')
@@ -159,4 +192,10 @@ describe('Detail view', () => {
             .element('.book__actions [data-ref=removeFromFinish]')
             .text.to.equal('Volver a leer');
     });
+
+
+
+
+
+
 });
