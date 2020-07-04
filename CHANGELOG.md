@@ -11,3 +11,7 @@
 -   Se arreglo el boton "Volver a leer" del detalle del libro (bug/#2).
 -   Se arreglo el detalle del libro para que muestre los géneros (bug/#3).
 -   Se arreglo el detalle del libro para que muestre el país (bug/#4).
+
+## 1.2.1 (2020-07-04)
+### HotFix
+-   Se cambio el color del borde de las cards
