@@ -370,8 +370,6 @@ test('Obtener un libro con array generos no vacio', async () => {
     // Creamos el libro
     const book = await BookModels.create(bookData);
 
-    // Obtenemos el libro
-    const receivedBook = await BookModels.get(1);
 
     expect(book.genres).not.toEqual([]);
 
