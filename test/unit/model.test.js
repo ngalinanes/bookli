@@ -12,6 +12,7 @@ test('Crear libro', async () => {
         year: 1949,
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
+        country: 'AlgunPais',
         genres: ['Cuentos', 'Fantástico'],
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
@@ -33,6 +34,7 @@ test('Crear libro sin título', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -53,6 +55,7 @@ test('Obtener un libro', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -76,6 +79,7 @@ test('Obtener un libro inexistente', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -98,6 +102,7 @@ test('Obtener todos los libros', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -110,6 +115,7 @@ test('Obtener todos los libros', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -135,6 +141,7 @@ test('Buscar libros', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -147,6 +154,7 @@ test('Buscar libros', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -171,6 +179,7 @@ test('Buscar libros sin resultado', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -183,6 +192,7 @@ test('Buscar libros sin resultado', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -206,6 +216,7 @@ test('Buscar libros con varios resultados', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -218,6 +229,7 @@ test('Buscar libros con varios resultados', async () => {
         publisher: 'Editorial Losada',
         isbn: '9788499089515',
         genres: ['Cuentos', 'Fantástico'],
+        country: 'AlgunPais',
         authors: ['Jorge Luis Borges'],
         cover: '/assets/el-aleph.jpg',
     };
@@ -241,6 +253,7 @@ test('Agregar un libro a la lista de lectura', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -269,6 +282,7 @@ test('Agregar un libro inexistente a la lista de lectura', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -294,6 +308,7 @@ test('Obtener libros de la lista de lectura', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -323,6 +338,7 @@ test('Obtener lista de lectura vacía', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };
@@ -337,6 +353,30 @@ test('Obtener lista de lectura vacía', async () => {
     expect(filterBook.length).toBe(0);
 });
 
+test('Obtener un libro con array generos no vacio', async () => {
+    const bookData = {
+        title: 'The Pragmatic Programmer',
+        synopsis:
+            'Straight from the programming trenches, The Pragmatic Programmer cuts through the increasing specialization and technicalities of modern software development to examine the core process--taking a requirement and producing working, maintainable code that delights its users. It covers topics ranging from personal responsibility and career development to architectural techniques for keeping your code flexible and easy to adapt and reuse.',
+        year: 1999,
+        publisher: 'Addison-Wesley Professional',
+        isbn: '9780201616224',
+        genres: ['Educación', 'Tecnología', 'Programación'],
+        authors: ['David Thomas', 'Andrew Hunt'],
+        country: 'AlgunPais',
+        cover: '/assets/pragmatic-programmer.jpg',
+    };
+
+    // Creamos el libro
+    const book = await BookModels.create(bookData);
+
+
+    expect(book.genres).not.toEqual([]);
+
+    //expect(book.genres).not.toBeNull();
+    //expect.arrayContaining(book.genres);
+});
+
 test('Poner disponible un libro nuevamente', async () => {
     const bookData = {
         title: 'The Pragmatic Programmer',
@@ -346,6 +386,7 @@ test('Poner disponible un libro nuevamente', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
         status: BookModels.status.READING,
@@ -372,6 +413,7 @@ test('Poner disponible un libro en estado terminado', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
         status: BookModels.status.FINISHED,
@@ -396,6 +438,7 @@ test('Finalizar un libro', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
         status: BookModels.status.READING,
@@ -422,6 +465,7 @@ test('Finalizar un libro en estado disponible', async () => {
         publisher: 'Addison-Wesley Professional',
         isbn: '9780201616224',
         genres: ['Educación', 'Tecnología', 'Programación'],
+        country: 'AlgunPais',
         authors: ['David Thomas', 'Andrew Hunt'],
         cover: '/assets/pragmatic-programmer.jpg',
     };

@@ -42,6 +42,41 @@ describe('Home Test', () => {
             );
     });
 
+    test('Click en el logo debe redirigir al home', browser => {
+        
+        browser
+        .url(BASE_URL)
+        .waitForElementVisible('body')
+        .waitForElementVisible('.brand')
+        .assert.attributeEquals(
+            '.brand',
+            'href',
+            'http://localhost:3000/'
+        );
+
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.brand')
+        .click('.brand'
+        );
+
+        browser
+        .assert.urlEquals('http://localhost:3000/');
+    });
+
+    test('Deberia mostrar el placeholder en el boton de busqueda', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('body > header > div.search > input')
+            .assert.attributeContains(
+                'body > header > div.search > input',
+                'placeholder',
+                'Buscar un libro'
+            );
+    });
+
     test('Deberia mostrar la lista de libros', browser => {
         browser
             .url(BASE_URL)
@@ -78,9 +113,59 @@ describe('Home Test', () => {
                 'Hmmm... Parece que no tenemos el libro que buscas.\nProba con otra busqueda.'
             );
     });
+	
+	test('Test Opacidad libro al hacer Hover', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist')
+            .moveToElement(
+                'body > main > div > div.books-container > div > a:nth-child(1) > div',
+                10,
+                10,
+            )
+            .assert.cssProperty(
+                'body > main > div > div.books-container > div > a:nth-child(1) > div',
+                'opacity',
+                '0.5'
+            )
+	});
 });
 
 describe('Detail view', () => {
+
+	test('Deberia aparecer los botones Dejar de leer y Lo termine! al hacer click en Volver a leer de un libro terminado', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__actions [data-ref=addToList]');
+
+        browser
+            .click('.book__actions [data-ref=addToList]')
+            .pause(1000)
+            .waitForElementVisible('.book__actions [data-ref=removeFromList]')
+            .waitForElementVisible('.book__actions [data-ref=addToFinish]')
+            .click('.book__actions [data-ref=addToFinish]')
+            .pause(1000)
+            .click('.book__actions [data-ref=removeFromFinish]')
+            .pause(1000)
+            .waitForElementVisible('.book__actions [data-ref=removeFromList]')
+            .waitForElementVisible('.book__actions [data-ref=addToFinish]');
+
+        browser.expect
+            .element('.book__actions [data-ref=removeFromList]')
+            .text.to.equal('Dejar de leer');
+
+        browser.expect
+            .element('.book__actions [data-ref=addToFinish]')
+            .text.to.equal('Lo termine!');
+            
+    });
+
+
+
+
+
     test('Deberia mostrar boton para agregar a lista de lectura', browser => {
         browser
             .url(BASE_URL + '/detail/1')
@@ -90,6 +175,34 @@ describe('Detail view', () => {
         browser.expect
             .element('.book__actions [data-ref=addToList]')
             .text.to.equal('Empezar a leer');
+    });
+
+    test('Chequear que el boton Volver redirija al home', browser => {
+        //Chequeo que el elemento "a" tenga el atributo href con la url del home, ya que los demas botones dentro de .book__actions son "button" y el unico "a" es Volver
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.book__actions')
+        .waitForElementVisible('a')
+        .assert.attributeEquals(
+            'a',
+            'href',
+            'http://localhost:3000/'
+        );
+
+        browser
+        .expect.element('body > main > div > div.book__actions > a')
+        .text.to.equal('Volver');
+
+        browser
+        .url(BASE_URL + '/detail/1')
+        .waitForElementVisible('body')
+        .waitForElementVisible('.book__actions')
+        .waitForElementVisible('a')
+        .click('a');
+
+        browser
+        .assert.urlEquals('http://localhost:3000/');
     });
 
     test('Deberia mostrar boton para remover libro de la lista de lectura si el libro es parte de la lista de lectura', browser => {
@@ -106,6 +219,17 @@ describe('Detail view', () => {
         browser.expect
             .element('.book__actions [data-ref=removeFromList]')
             .text.to.equal('Dejar de leer');
+    });
+
+    test('Deberia poder verse el pais de un libro en el detalle', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body');
+    
+        browser.expect
+            .element('body > main > div > div.book__body > div > p:nth-child(2) > span')
+            .text.to.equal('algunPais');
     });
 
     test('Deberia poder remover libro de la lista de lectura', browser => {
@@ -159,4 +283,6 @@ describe('Detail view', () => {
             .element('.book__actions [data-ref=removeFromFinish]')
             .text.to.equal('Volver a leer');
     });
+	
+	
 });
