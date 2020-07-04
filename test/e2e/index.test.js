@@ -129,7 +129,24 @@ describe('Home Test', () => {
                 'opacity',
                 '0.5'
             )
-	});
+    });
+    
+    test('Deberia tener color especificado el border de la card', browser => {
+        browser
+            .url(BASE_URL)
+            .waitForElementVisible('body')
+            .waitForElementVisible('.booklist')
+            .moveToElement(
+                'body > main > div > div.books-container > div > a:nth-child(1) > div',
+                10,
+                10,
+            )
+            .assert.cssProperty(
+                'body > main > div > div.books-container > div > a:nth-child(1) > div',
+                'border-color',
+                'rgb(96, 202, 101)' //Aca modifico el formato para expresarlo por una cuestion interna del test
+            )
+    });
 });
 
 describe('Detail view', () => {
