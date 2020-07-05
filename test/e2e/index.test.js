@@ -248,6 +248,17 @@ describe('Detail view', () => {
             .element('body > main > div > div.book__body > div > p:nth-child(2) > span')
             .text.to.equal('algunPais');
     });
+	
+	test('Deberia poder verse el numero de ISBN de un libro en el detalle', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body');
+    
+        browser.expect		
+            .element('body > main > div > div.book__body > div > p:nth-child(4) > span')
+            .text.to.equal('9788499089515');
+    });
 
     test('Deberia poder remover libro de la lista de lectura', browser => {
         browser
