@@ -96,6 +96,17 @@ describe('Home Test', () => {
             .expect.elements('.booklist .book')
             .count.to.equal(1);
     });
+    
+    test('Verifica que el boton de Comprar me redireccione a Amazon ', browser => {
+        browser
+        .url(BASE_URL)
+        .waitForElementVisible('body')
+        .waitForElementVisible('#comprar')
+        .click('#comprar')
+        .pause(400);
+
+        browser.expect.url().to.equal( "https://www.amazon.com/amazon-books/b?ie=UTF8&node=13270229011");
+    });
 
     test('Deberia mostrar un mensaje cuando no se encuentra un libro', browser => {
         browser
