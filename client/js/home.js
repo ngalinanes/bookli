@@ -8,6 +8,7 @@ let state = {
     searchTerm: '',
     status: '',
     books: [],
+    cantLibros:'',
 };
 
 /**
@@ -19,6 +20,9 @@ async function searchBooks(searchTerm) {
 
     const books = await bookService.search(state.searchTerm, state.status);
 
+
+    cantidadLibros(books);
+	
     state.books = books;
     renderBooks(state);
 }
@@ -40,6 +44,7 @@ async function getAllBooks() {
     const books = await bookService.getAll();
 
     state.books = books;
+    cantidadLibros(books);
     renderBooks(state);
 }
 
@@ -63,6 +68,14 @@ function setUpListeners() {
         changeFilter(e.target.value);
     });
 }
+
+
+function cantidadLibros(books){
+     state.cantLibros = books.length ;
+     document.getElementById('cant').innerHTML=`<u>Cantidad de Libros:</u><strong>${state.cantLibros}</strong>`;
+ }
+
+
 
 /**
  * Inicializa la vista home
