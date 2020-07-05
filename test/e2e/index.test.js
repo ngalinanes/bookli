@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const fixture = require('../../scripts/fixture.js');
 const startServer = require('../../server/src/index.js');
 const BookModels = require('../../server/src/models/book.js');
@@ -23,6 +24,35 @@ after(() => {
 });
 
 describe('Home Test', () => {
+
+	 // eslint-disable-next-line no-mixed-spaces-and-tabs
+	 test('Deberia mostrar la cantidad de libros correspondiente al filtro aplicado en la etiqueda de Cantidad de libros', browser => {
+         browser
+             .url(BASE_URL + '/detail/1')
+             .waitForElementVisible('body')
+             .waitForElementVisible('.book__actions [data-ref=addToList]');
+
+          browser
+             .click('.book__actions [data-ref=addToList]')
+             .pause(400)
+             .waitForElementVisible('.book__actions [data-ref=removeFromList]')
+             
+          browser
+             .url(BASE_URL)
+             .click('body > main > div > div.filters-container > form > label:nth-child(3) > div')
+             .waitForElementVisible('#cant > strong');
+
+          browser.expect
+             .element('#cant > strong')
+             .text.to.equal('1');
+         });
+
+
+
+
+
+
+
     test('Deberia tener de titulo Bookli', browser => {
         browser
             .url(BASE_URL)
@@ -95,6 +125,17 @@ describe('Home Test', () => {
             .pause(400)
             .expect.elements('.booklist .book')
             .count.to.equal(1);
+    });
+    
+    test('Verifica que el boton de Comprar me redireccione a Amazon ', browser => {
+        browser
+        .url(BASE_URL)
+        .waitForElementVisible('body')
+        .waitForElementVisible('#comprar')
+        .click('#comprar')
+        .pause(400);
+
+        browser.expect.url().to.equal( "https://www.amazon.com/amazon-books/b?ie=UTF8&node=13270229011");
     });
 
     test('Deberia mostrar un mensaje cuando no se encuentra un libro', browser => {
@@ -247,6 +288,17 @@ describe('Detail view', () => {
         browser.expect
             .element('body > main > div > div.book__body > div > p:nth-child(2) > span')
             .text.to.equal('algunPais');
+    });
+	
+	test('Deberia poder verse el numero de ISBN de un libro en el detalle', browser => {
+        browser
+            .url(BASE_URL + '/detail/1')
+            .waitForElementVisible('body')
+            .waitForElementVisible('.book__body');
+    
+        browser.expect		
+            .element('body > main > div > div.book__body > div > p:nth-child(4) > span')
+            .text.to.equal('9788499089515');
     });
 
     test('Deberia poder remover libro de la lista de lectura', browser => {
