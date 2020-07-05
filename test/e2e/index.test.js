@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 const fixture = require('../../scripts/fixture.js');
 const startServer = require('../../server/src/index.js');
 const BookModels = require('../../server/src/models/book.js');
@@ -24,6 +25,7 @@ after(() => {
 
 describe('Home Test', () => {
 
+	 // eslint-disable-next-line no-mixed-spaces-and-tabs
 	 test('Deberia mostrar la cantidad de libros correspondiente al filtro aplicado en la etiqueda de Cantidad de libros', browser => {
          browser
              .url(BASE_URL + '/detail/1')
